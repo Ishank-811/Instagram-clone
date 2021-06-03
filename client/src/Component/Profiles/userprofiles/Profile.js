@@ -15,24 +15,27 @@ const Profile = () => {
     const { id } = useParams();
     const isloading = useSelector(state => state.auth.isloading)
     let posts = useSelector((state) => state.profile.userprofile);
-     let userinfo ; 
+     let userinfo ;
+   
     if(posts){
      userinfo=posts["1"]?posts["1"]:null ;
     }
- 
+    if(userinfo){
+    console.log(userinfo["0"]?.followers?.length); 
+    }
     let userpsot ;
     let numberOfPost;   
     if(posts){
     userpsot = posts["0"];
-    numberOfPost=userpsot.length;  
+    numberOfPost=userpsot?.length;  
     }   
- 
-   
+
     useEffect(() => {
         dispatch(userprofile(id));
     }, [location]);
 
 const submit = ()=>{
+    console.log(id); 
     dispatch(userprofile(id));
  }
 

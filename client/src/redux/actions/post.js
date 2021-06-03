@@ -75,12 +75,12 @@ export const likeposts = (id) => async (dispatch) => {
 
 export const userprofile = (id)=>async(dispatch)=>{
   try{
-    dispatch({type: "START_LOADING" })
+   
   const {data} = await api.userprofile(id) ;
 //  console.log(data) ; 
   
    dispatch({type:"USER_PROFILE" , payload:data}) ; 
-   dispatch({type: "END_LOADING" })
+  
   }catch(err){  
   console.log(err) ; 
   }
@@ -94,12 +94,12 @@ export const userprofile = (id)=>async(dispatch)=>{
 
   export const follow = (follow ) =>async(dispatch)=>{
     try{
-  
+     
        console.log(follow); 
        const {data} = await api.follow(follow) ; 
        console.log(data) ; 
        dispatch({type:"FOLLOW" ,payload:data }) ; 
-    
+       dispatch({type: "END_LOADING" })
     }catch(err){
     console.log(err)  ; 
         
@@ -108,12 +108,11 @@ export const userprofile = (id)=>async(dispatch)=>{
 }
 export const unfollow = (unfollow ) =>async(dispatch)=>{
   try{
-   
      console.log(unfollow) ; 
      const {data} = await api.unfollow(unfollow) ; 
-     console.log(data) ; 
+     console.log(data); 
      dispatch({type:"UNFOLLOW" ,payload:data }) ; 
- 
+     dispatch({type: "END_LOADING" })
   }catch(err){
   console.log(err)  ; 
   }

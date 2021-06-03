@@ -113,6 +113,7 @@ const userprofile = async (req, res) => {
 
   var users;
   try {
+    
     var profilepost = await postmessage.find({ creator: userid.id }).exec();
     // let users =  await user.find({$or: [{id: userid.id}, {"_id":ObjectId(userid.id)}]}) ;
     users = await user.find({ id: userid.id }).exec();

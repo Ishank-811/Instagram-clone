@@ -17,9 +17,10 @@ const Profile = () => {
   const follow_number = user?.result?.followers.length;
   const following_number = user?.result?.following.length;
   const profile_pic = user?.result?.pic;
-const numberofpost=posts?.length;
+  const numberofpost=posts?.length;
  
- 
+
+
   const username = user.result.name ? user.result.name : user.result.fullname;
   useEffect(() => {
     dispatch(myprofile());

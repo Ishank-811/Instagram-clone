@@ -93,10 +93,16 @@ const signup = async (req, res) => {
 
 const follow = async (req, res) => {
   console.log(req.body);
+  
   const userid = req.body.userid;
   console.log(userid);
 
   try {
+    const post = await UserModal.findById(req.body.followId);
+    console.log(post); 
+    const index = post.followers.findIndex((id) => id === String(userid));
+    console.log(index); 
+    if(index===-1){
     const followers = await UserModal.findByIdAndUpdate(
       req.body.followId,
       { $push: { followers: userid } },
@@ -108,6 +114,7 @@ const follow = async (req, res) => {
       { new: true }
     );
     res.status(201).json({ followers, following });
+    }
   } catch (err) {
     res.status(401).json({ message: "something went wrong" });
     console.log(err);
