@@ -1,0 +1,144 @@
+.full-post{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom:50px;
+    position: relative;
+    top:17%;
+    width:80%;
+   
+}
+.post{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width:50%; 
+    box-shadow: 1px 1px 10px    black;
+    
+}
+.post-image{
+    height:650px; 
+    width:100%; 
+
+}
+.post-image img{
+    height:100%; 
+    width:100%;
+ 
+}
+.profilename{
+    width:70%;
+    font-weight: 600;
+    margin-top: 15px;
+   
+    
+}
+.post-head{
+    display: flex;
+   background-color: rgb(246, 246, 246);
+    align-items: flex-start;
+    flex-direction: row;
+    height:50px; 
+    
+}
+.comment p {
+    margin-right: 10px;
+}
+
+
+.profile-pic{
+    margin:6px 0px 0 10px;
+    height:43px;
+    width:43px;
+    border-radius: 50%;
+    border: 3px solid rgb(248, 161, 161);
+}
+.post-actions{
+    display: flex;
+    flex-direction: row;
+    margin-bottom:7px;
+    
+   
+}
+.comment{
+    display: flex;
+    flex-direction: row;
+    /* border:1px solid black;  */
+    flex-wrap: wrap;
+    margin-left:10px;
+    
+}
+.Comments{
+    word-break: break-word;
+}
+
+.username{
+ font-weight: 600;
+}
+
+.time{
+  font-size:14px;
+ color:rgb(158, 158, 158); 
+ margin:10px 10px 10px 10px ; 
+
+}
+.user-action{
+    margin-top:15px; 
+    cursor: pointer;
+}
+
+.deletebutton{
+    cursor: pointer;
+    background:transparent;
+    color:red;
+    font-weight: 600;
+    outline: none;
+    border:none;
+}
+
+.commentOnpost{
+    width:90%; 
+    height:90%;
+    border: none; 
+    border-top: 1px solid black;
+}
+/* form{
+    margin:1px 0px 1px 0px ;
+    border: 1px solid black ; 
+    display: flex;
+    height:40px ; 
+    flex-direction: row;
+    border: none;
+    
+} */
+::placeholder{
+   margin-left: 20px!important;
+    font-size: 14px;
+}
+form button{
+    background-color: transparent;
+    border: none;
+    color:rgb(53, 132, 250);
+    font-weight:600; 
+
+}
+.Postdescription {
+    display: flex;
+    flex-direction: row;
+}
+.descriptionUsername{
+    font-weight: 600;
+    margin:0 10px 0 10px;
+}
+.viewcomments{
+    display: flex;
+    flex-direction: row;
+
+}
+.allcomment{
+    color:rgb(163, 162, 162) ;
+    font-weight: 600;
+    margin:5px 10px 5px 10px; 
+}

@@ -1,0 +1,242 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+  
+  .section-title {
+    display: flex;
+  }
+  
+  .profile-pic {
+    border: 3px solid rgb(190, 76, 47);
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+  }
+  
+  .picture {
+    height: 34px;
+    width: 34px;
+    border-radius: 50%;
+  }
+  
+  .options {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .opt {
+    margin-top: 2%;
+  }
+  .profile {
+    margin: 10px 15px;
+  }
+  .profile_tag {
+    font-size: 1.4rem;
+  }
+  .profile a {
+    text-decoration: none;
+    color: #262626;
+  }
+
+
+
+
+  /* Aside section pc screen alone */
+  
+  .aside-section {
+    display: flex;
+    flex-direction: column;
+    height: 255px;
+    padding-left: 1%;
+    /* padding: 0; */
+    position: fixed;
+    top:16%; 
+    right: 0;
+    width: 35%;
+  }
+  
+  .aside1 {
+    height: 62px;
+    margin-bottom: 10px;
+    padding: 0;
+    right: 0;
+    width: 90%;
+  }
+  
+  .user-profile {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    margin-bottom: 12px;
+    max-height: 50px;
+    width: 100%;
+    padding-left: 5px;
+  }
+  
+  .own-profile-pic {
+    border-radius: 50%;
+    margin-top: 5%;
+  }
+  
+  .own-picture {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+  }
+
+  
+  .aside2-top {
+    display: flex;
+    flex-direction: row;
+   
+    justify-content: space-between;
+    padding-top: 2%;
+  }
+  
+  .aside2-top1 {
+    width: 70%;
+    padding: 2%;
+    color: #797777;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  .aside2-top2 {
+    margin: 2%;
+    position: relative;
+    top: 0%;
+    right:33%;
+    padding-right: 5px;
+  }
+  
+  .aside2-top2 a {
+    font-size: 14px;
+    font-weight: 650;
+    text-decoration: none;
+    color: #262626;
+  }
+  .aside2-body {
+    height: 150px;
+    overflow: auto;
+    overflow-x: hidden;
+  }
+  
+  .story {
+    display: flex;
+    margin-top: 4px;
+    margin-left: 2%;
+    height: 50px;
+    width: 100%;
+    padding-top: 4px;
+  }
+  .profile-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  
+  .profile-link {
+    padding: 5%; 
+    margin-left: 2%;
+    font-weight: 700;
+    
+  }
+  
+  .profile-link a {
+  
+    text-decoration: none;
+    color: #262626;
+    font-size: 1.5rem;
+  }
+  .time-stamp {
+    margin-left: 4px;
+    opacity: 0.7;
+  }
+  
+  .aside3 {
+    margin-top: 2%;
+    width: 80%;
+    border-radius: 4px;
+    height: 220px;
+  }
+  
+  .tp3 {
+    width: 70%;
+  }
+  
+  .aside3-t {
+    padding: 5px;
+  }
+  
+  .suggestions {
+    display: flex;
+    padding: 9px;
+    flex-direction: row;
+  }
+  .see-all {
+    padding-right: 2%;
+  }
+  .st {
+    margin-top: 4px;
+    margin-left: 2%;
+    height: 50px;
+    width: 100%;
+    padding-top: 4px;
+  }
+  .sugg-pix {
+    margin-top: 5px;
+    height: 40px;
+    width: 40px;
+    padding-right: 5px;
+  }
+  
+  .follow {
+    position: relative;
+    justify-content: center;
+    top: 0%;
+    left: 14%;
+    border: hidden;
+    font-weight: 500;
+   
+   
+    background: transparent;
+  }
+  
+  .follow a {
+    text-decoration: none;
+   
+  }
+  
+  .ff {
+    font-size: 1.34rem;
+    color:#0095F6!important;
+  }
+
+  
+  
+  @media (max-width: 1024px) {
+  
+    .top {
+        height: 54px;
+        padding: 0 10px;
+    }
+  
+    .aside2-top2 {
+        width: 20%;
+    }
+  
+    .aside2-top2 a {
+        font-size: .8rem;
+    }
+  
+    .follow {
+        left: 15%;
+    }
+  
+    .push3 {
+        padding-left: -50px
+    }
+  }
+  
+  
+  

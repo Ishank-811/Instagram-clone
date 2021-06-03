@@ -1,0 +1,56 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    padding: 10px;
+    border-bottom: 2px solid #ddd;
+    position: fixed;
+    width:100%;
+    background-color: #fff; 
+    z-index:3;
+  }
+  .navbar .logo-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .navbar .logo-section div {
+    align-self: stretch;
+    width: 1px;
+    background: black;
+    margin: 0 20px;
+  }
+  .navbar .icons-section .fa {
+    text-decoration: none;
+    color: inherit;
+    font-size: 4rem;
+    margin: 0 10px;
+  }
+  .icons-section{
+      display: flex;
+      flex-direction: row;
+      cursor: pointer;
+  }
+  .navbar .logo {
+    width: 40px;
+  }
+  .navbar .logoname {
+    width: 130px;
+  }
+  .navbar .input-search {
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    border: 2px solid black;
+    outline: 0;
+  }
+  .navbar .input-search:focus {
+    text-align: left;
+  }
+  .profile_pic{
+      height:50px;
+      width:50px;
+      border-radius: 50%; 
+      border:1px solid black
+  }
