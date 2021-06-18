@@ -4,12 +4,12 @@ import useStyles from "./Style";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { updateprofile } from "../../redux/actions/auth";
-import { CircularProgress } from "@material-ui/core";
 import Navbar from "../Navbar/Navbar.js";
 import { useHistory } from "react-router";
+import InternetConn from "../InternetConn/InternetConn";
 
 const Update = () => {
-  const history = useHistory(); 
+  const history = useHistory();
   let isloading = useSelector((state) => state.auth.isloading);
   const dispatch = useDispatch();
   const classes = useStyles();
@@ -22,7 +22,7 @@ const Update = () => {
     fullname: fullname,
     username: username,
   });
-  console.log(postData.image);
+
   const handlechange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -40,7 +40,11 @@ const Update = () => {
         data
       );
       dispatch(
-        updateprofile(currentId, { ...postData, pic: image?.data?.secure_url } ,history)
+        updateprofile(
+          currentId,
+          { ...postData, pic: image?.data?.secure_url },
+          history
+        )
       );
     } catch (err) {}
   };
@@ -48,28 +52,25 @@ const Update = () => {
   if (isloading) {
     return (
       <>
-        <Paper style={{ height: "100vh" }} className={classes.loadingpaper}>
-          <Navbar></Navbar>
-          <Typography
-            style={{ position: "relative", top: "30%" }}
-            variant="h3"
-            align="center"
-          >
-            Please wait while we Update your post!!
-          </Typography>
-          <CircularProgress
-            style={{
-              color: "red",
-              position: "relative",
-              top: "40%",
-              left: "50%",
-            }}
-            size="7em"
-          />
-        </Paper>
+        <InternetConn text=" Please wait while we Update your post!!"></InternetConn>
       </>
     );
   }
+  if (!user?.result?.name && !user?.result?._id) {
+    return (
+      <>
+        <Navbar></Navbar>
+        <Paper className={classes.paper}>
+          <Typography variant="h6" align="center">
+            Please Sign In to create your own memories and like other's
+            memories.
+          </Typography>
+        </Paper>
+        {history.push("/")}
+      </>
+    );
+  }
+
   return (
     <div>
       <Navbar></Navbar>

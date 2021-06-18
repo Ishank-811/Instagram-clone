@@ -10,7 +10,6 @@ const Header = (props) => {
 
   const [showfollow, setshowfollow] = useState(false);
 
-  console.log(props?.followers?.length);
   const profile_pic = props?.userinfo["0"].pic;
   const followbtn = () => {
     dispatch(
@@ -36,13 +35,12 @@ const Header = (props) => {
     const follow_number = props.followers.findIndex(
       (id) => id === String(userid?.result?._id)
     );
-    console.log(follow_number); 
     if (follow_number > -1) {
       setshowfollow(true);
     } else {
       setshowfollow(false);
     }
-  }, [followbtn , unfollowbtn]);
+  }, [followbtn, unfollowbtn]);
 
   return (
     <header>

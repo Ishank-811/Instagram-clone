@@ -12,15 +12,15 @@ const signin = async (req, res) => {
         password,
         oldUser.password
       );
-      console.log(isPasswordCorrect);
+     
       if (!isPasswordCorrect)
         return res.status(400).json({ message: "Invalid credentials" });
 
       const token = jwt.sign(
         { email: oldUser.email, id: oldUser._id }, "test",
-        { expiresIn: "1h" }
+       
       );
-      console.log(token);
+     
       res.status(200).json({ result: oldUser, token });
     } catch (err) {
       console.log(err); 
@@ -29,28 +29,28 @@ const signin = async (req, res) => {
   } else {
     const googleId = req.body.id;
     let token = req.body.token;
-    console.log(googleId);
+  
     const result = await UserModal.findOne({ id: googleId });
-    console.log({ result });
+ 
     if(!result){
-      return res.status(400).json({ message: "Something went wrong , Please try again !!" }); 
+      return res.status(400).json({ message: "Google signup first" }); 
     }
     res.status(200).json({ result, token });
   }
 };
 const signup = async (req, res) => {
-  console.log(req.body);
+
   const { fullname, email, password, username, pic } = req.body;
   try {
    
     if (password) {
       const oldUser = await UserModal.findOne({
         $or: [{ username: username }, {  email:  email }]});
-      console.log(oldUser);
+   
       if (oldUser)
         return res.status(400).json({ message: "User already exists" });
       const hashedPassword = await bcrypt.hash(password, 12);
-      console.log(hashedPassword);
+
       let result = await UserModal.create({
         email,  
         fullname,
@@ -62,8 +62,8 @@ const signup = async (req, res) => {
         if (password) {
           const token = jwt.sign(
             { email: result.email, id: result._id },
-            "test",
-            { expiresIn: "1h" }
+            "test"
+          
           );
           console.log(token);
           res.status(201).json({ result, token });
@@ -76,7 +76,7 @@ const signup = async (req, res) => {
         return res.status(400).json({ message: "User already exists" });
         let ress = await new UserModal({ email, fullname, id: req.body.id });
         const result = await ress.save();
-        console.log(result);
+
         let token = req.body.token;
         res.status(201).json({ result, token });
 
@@ -92,16 +92,16 @@ const signup = async (req, res) => {
 };
 
 const follow = async (req, res) => {
-  console.log(req.body);
+
   
   const userid = req.body.userid;
-  console.log(userid);
+
 
   try {
     const post = await UserModal.findById(req.body.followId);
-    console.log(post); 
+
     const index = post.followers.findIndex((id) => id === String(userid));
-    console.log(index); 
+
     if(index===-1){
     const followers = await UserModal.findByIdAndUpdate(
       req.body.followId,
@@ -121,9 +121,9 @@ const follow = async (req, res) => {
   }
 };
 const unfollow = async (req, res) => {
-  console.log(req.body);
+
   const userid = req.body.userid;
-  console.log(userid);
+
 
   try {
     const followers = await UserModal.findByIdAndUpdate(
@@ -136,7 +136,7 @@ const unfollow = async (req, res) => {
       { $pull: { following: req.body.unfollowId } },
       { new: true }
     );
-    console.log(following, followers);
+
     res.status(201).json({ followers, following });
   } catch (err) {
     res.status(401).json({ message: "something went wrong" });
@@ -150,7 +150,7 @@ const updateprofile = async (req, res) => {
   try {
     const updatedPost = { fullname, username, pic };
     await UserModal.findByIdAndUpdate(id, updatedPost, { new: true });
-    console.log(updatedPost);
+
     res.json(updatedPost);  
   } catch (err) {
     console.log(err);

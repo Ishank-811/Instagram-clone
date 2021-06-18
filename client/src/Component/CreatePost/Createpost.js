@@ -6,7 +6,7 @@ import { createposts } from "../../redux/actions/post";
 import { TextField, Button, Typography, Paper } from "@material-ui/core";
 import axios from "axios";
 import Navbar from "../Navbar/Navbar";
-import { CircularProgress } from "@material-ui/core";
+import InternetConn from "../InternetConn/InternetConn";
 const Form = () => {
   const dispatch = useDispatch();
   const history = useHistory();
@@ -33,20 +33,18 @@ const Form = () => {
         data
       );
       let loginname = user?.result?.name;
-      
+
       dispatch(
-        createposts({
-          ...postData,
-          image: image?.data?.secure_url,
+        createposts(
+          {
+            ...postData,
+            image: image?.data?.secure_url,
 
-          name: loginname ? user?.result?.name : user?.result?.fullname,
-        },history)
+            name: loginname ? user?.result?.name : user?.result?.fullname,
+          },
+          history
+        )
       );
-
-      // if(image){
-      //   dispatch({type: "END_LOADING" })
-      //   history.push("/Home");
-      // }
     } catch (err) {
       console.log(err);
     }
@@ -54,21 +52,7 @@ const Form = () => {
   if (isloading) {
     return (
       <>
-        <Paper style={{height:"100vh"}} className={classes.loadingpaper}>
-        <Navbar></Navbar>
-          <Typography style={{position:"relative", top:"30%" }} variant="h3" align="center">
-            Please wait while we create your post!!
-          </Typography>
-          <CircularProgress
-            style={{
-              color: "red",
-              position: "relative",
-              top: "40%",
-              left: "50%",
-            }}
-            size="7em"
-          />
-        </Paper>
+        <InternetConn text="please wait we are creating your post"></InternetConn>
       </>
     );
   }

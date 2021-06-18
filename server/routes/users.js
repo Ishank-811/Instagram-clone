@@ -6,6 +6,6 @@ router.patch("/unfollow" ,auth , unfollow);
 router.patch("/follow" ,auth , follow);
 router.post("/signin",signin) ; 
 router.post("/signup",signup) ; 
-router.patch("/updateprofile/:id" , updateprofile )
+router.patch("/updateprofile/:id" ,auth, updateprofile )
 
 module.exports = router ;       
