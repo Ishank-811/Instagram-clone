@@ -100,6 +100,7 @@ const follow = async (req, res) => {
   try {
     const post = await UserModal.findById(req.body.followId);
 
+    
     const index = post.followers.findIndex((id) => id === String(userid));
 
     if(index===-1){

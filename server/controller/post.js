@@ -43,7 +43,7 @@ const likeposts = async (req, res) => {
 
   try {
     const post = await postmessage.findById(id);
-    const index = post.likes.findIndex((id) => id === String(req.userId));
+    const index = post.likes.findIndex((id ) => id === String(req.userId));
 
     if (index === -1) {
       const likedPost = await postmessage.findByIdAndUpdate(
@@ -78,7 +78,7 @@ const deleteposts = async (req,res)=>{
   const {id} = req.params ; 
  
   await postmessage.findByIdAndRemove(id) ; 
-  res.json({message:"post deleted successully"}) ;
+  res.json({message:"post de  leted successully"}) ;
 
 }
 const comments = async (req, res) => {

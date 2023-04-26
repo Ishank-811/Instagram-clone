@@ -1,5 +1,5 @@
 import axios from "axios";
-const API = axios.create({ baseURL: "https://iinstagramclone.herokuapp.com/" });
+const API = axios.create({ baseURL: "http://localhost:3000/" });
 API.interceptors.request.use((req) => {
   if (localStorage.getItem("profile")) {
     req.headers.Authorization = `Bearer ${
